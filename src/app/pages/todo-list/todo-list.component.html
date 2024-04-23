@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Lista de Tarefas</h1>
+  <section class="input-section">
+    <input
+      type="text"
+      [(ngModel)]="newTask"
+      placeholder="Adicionar nova tarefa"
+      class="input-task"
+    />
+    <button (click)="addTask()" class="btn-add">Adicionar Tarefa</button>
+  </section>
+
+  <section class="tasks">
+    <div *ngFor="let task of tasks; let i = index" class="task-item">
+      <input type="text" [(ngModel)]="tasks[i].task" [class.completed]="tasks[i].completed" class="input-task" />
+      <button (click)="completeTask(i)" class="btn-complete">Concluir Tarefa</button>
+      <button (click)="updateTask(i, tasks[i].task)" class="btn-update">Atualizar Tarefa</button>
+      <button (click)="removeTask(i)" class="btn-remove">Remover Tarefa</button>
+    </div>
+  </section>
+  
+  
+
+  <p class="total-tasks">Todas de Atividades a fazer: {{ this.total }}</p>
+</div>
